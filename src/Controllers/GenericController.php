@@ -9,12 +9,12 @@ class GenericController extends Controller {
     public function __construct()
     {
         // We are extending an attribute: endPoint, which is private that is way we are using getter and setter
-        $this->setEndPoint("/welcome");
+        $this->setEndPoint("/");
     }
 
     // Returns a message
     // TODO -> Returns a whole page
     public function index() {
-        echo "Hello World!";
+        require_once __DIR__ . '/../../resources/views/welcome.php';
     }
 }
