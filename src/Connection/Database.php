@@ -30,7 +30,7 @@ class Database {
     }
 
     public function getConnection() {
-        if ($this->isConnected) {
+        if ($this->isConnected === true) {
             return $this->pdo;
         } 
 
@@ -38,7 +38,7 @@ class Database {
     }
 
     public function closeConnection() {
-        if ($this->isConnected) {
+        if ($this->isConnected === true) {
             $this->pdo = null;
         }
 

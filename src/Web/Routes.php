@@ -27,6 +27,7 @@ class Routes
         $endpoint = Request::getEndpoint(); 
 
         // In Both cases it will kill the connection
+        
         // If there are no routes for that endpoint
         if (
             Validator::endpointExists($endpoint, $this->routes) === false

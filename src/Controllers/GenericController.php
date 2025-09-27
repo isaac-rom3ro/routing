@@ -2,6 +2,9 @@
 declare(strict_types = 1);
 
 namespace App\Controllers;
+
+use App\Connection\Database;
+use App\Models\GenericModel;
 use App\Controllers\Controller;
 
 // When creating a Controller, you should extends the Controller class
@@ -16,5 +19,12 @@ class GenericController extends Controller {
     // TODO -> Returns a whole page
     public function index() {
         require_once __DIR__ . '/../../resources/views/welcome.php';
+    }
+
+    public function storeUser(?array $request = null, Database $database)
+    {
+        $genericModel = new GenericModel(table: 'user');
+
+        return $genericModel->insert('isaac', $database->getConnection());
     }
 }

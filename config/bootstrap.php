@@ -3,6 +3,8 @@
 // Points to root directory of the project
 
 use Dotenv\Dotenv;
+use App\Connection\Database;
+use App\Web\Routes;
 
 define('ROOT_PATH', realpath(__DIR__ . '/..'));
 
@@ -16,5 +18,15 @@ define('DELETE', 'DELETE');
 require_once ROOT_PATH . '/vendor/autoload.php';
 
 // Using ENV variables
-$dotEnv = Dotenv::createImmutable(__DIR__, '.env');
+$dotEnv = Dotenv::createImmutable(ROOT_PATH, '.env');
 $dotEnv->safeLoad();
+
+$database = new Database(
+    dbHOST: $_ENV['DB_HOST'],
+    dbNAME: $_ENV['DB_NAME'], 
+    dbCHARSET: $_ENV['DB_CHARSET'], 
+    dbUSERNAME: $_ENV['DB_USERNAME'], 
+    dbPASSWORD: $_ENV['DB_PASSWORD']
+);
+
+$routes = new Routes();
