@@ -1,6 +1,9 @@
 <?php
 
 // Points to root directory of the project
+
+use Dotenv\Dotenv;
+
 define('ROOT_PATH', realpath(__DIR__ . '/..'));
 
 // Instead of using 'METHOD' just write it down, good practice make it standard, yea you can add more if you wanna.
@@ -11,3 +14,7 @@ define('PATCH', 'PATCH');
 define('DELETE', 'DELETE');
 
 require_once ROOT_PATH . '/vendor/autoload.php';
+
+// Using ENV variables
+$dotEnv = Dotenv::createImmutable(__DIR__, '.env');
+$dotEnv->safeLoad();

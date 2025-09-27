@@ -12,5 +12,7 @@
             "email": "is4ac.romero@outlook.com"
         }
     ],
-    "require": {}
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
 }
