@@ -6,6 +6,7 @@ namespace App\Controllers;
 use App\Connection\Database;
 use App\Models\GenericModel;
 use App\Controllers\Controller;
+use App\Web\Request;
 
 // When creating a Controller, you should extends the Controller class
 class GenericController extends Controller {
@@ -16,15 +17,19 @@ class GenericController extends Controller {
     }
 
     // Returns a message
-    // TODO -> Returns a whole page
     public function index() {
         require_once __DIR__ . '/../../resources/views/welcome.php';
     }
 
     public function storeUser(?array $request = null, Database $database)
     {
+        if ($request === null)
+        {
+            $data = Request::input();
+        }
+
         $genericModel = new GenericModel(table: 'user');
 
-        return $genericModel->insert('isaac', $database->getConnection());
+        return $genericModel->insert($data["name"], $database->getConnection());
     }
 }

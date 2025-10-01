@@ -15,7 +15,7 @@ $routes->addNewRoute(
 $routes->addNewRoute(
     endpoint: '/user',
     method: POST,
-    callback: fn($request) => $genericController->storeUser($request, $database)
+    callback: fn($request = null) => $genericController->storeUser($request, $database)
 );
 
 $routes->run();

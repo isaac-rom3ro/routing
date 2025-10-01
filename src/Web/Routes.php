@@ -8,25 +8,34 @@ use Exception;
 
 class Routes
 {
+    // It will save all the routes added by the dev
     private array $routes = [];
 
-    public function addNewRoute(string $endpoint, string $method, callable $callback): void
+    // This method will add to our route array, new routes
+    public function addNewRoute(
+        string $endpoint, 
+        string $method, 
+        callable $callback
+    ): void
     {
-        $method = strtoupper($method); // post -> POST
+        $method = strtoupper($method); // method -> METHOD
 
         // routes
         // └── /users
-        // ├── POST -> callback function
-        // └── GET  -> callback2 function
+        // ├── POST -> method -> register a new user
+        // └── GET  -> method -> show a page 
         $this->routes[$endpoint][$method] = $callback;
     }
 
+    // Once run, the routing system is working 
     public function run(): void
     {
-        $method = Request::getMethod(); 
+        // Get the method requested -> GET, POST ...
+        $method = Request::getMethod();  
+        // Get the endpoint -> /user
         $endpoint = Request::getEndpoint(); 
 
-        // In Both cases it will kill the connection
+        // In Both cases of fail verification, it will kill the connection
         
         // If there are no routes for that endpoint
         if (
@@ -42,6 +51,7 @@ class Routes
             die(ApiResponse::respondMethodNotAllowed()); // 405
         }
 
+        // Get query parameters passed by the url
         $query = Request::getQueryParameter();
 
         // Run your function without Query Parameter

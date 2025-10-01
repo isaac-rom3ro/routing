@@ -5,6 +5,8 @@ namespace App\Web;
 
 class ApiResponse
 {
+    // Each function change the http response and return a message in json
+    // This methods are standard from the official documentation of mdn mozilla
     public static function respondOK()
     {
         http_response_code(200);
