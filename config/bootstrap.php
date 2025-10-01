@@ -15,6 +15,10 @@ define('PUT', 'PUT');
 define('PATCH', 'PATCH');
 define('DELETE', 'DELETE');
 
+// Set the timezone
+define('TIMEZONE', 'America/Sao_Paulo');
+date_default_timezone_set(TIMEZONE);
+
 // Autoloader
 require_once ROOT_PATH . '/vendor/autoload.php'; 
 

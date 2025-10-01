@@ -3,6 +3,7 @@
 require_once __DIR__ . '/config/bootstrap.php';
 
 use App\Controllers\GenericController;
+use App\DateTime\Obsid;
 
 $genericController = new GenericController();
 
@@ -13,9 +14,11 @@ $routes->addNewRoute(
 );
 
 $routes->addNewRoute(
-    endpoint: '/user',
-    method: POST,
-    callback: fn($request = null) => $genericController->storeUser($request, $database)
+    endpoint: '/date',
+    method: GET,
+    callback: function () {
+        var_dump(Obsid::now()->format('Y-m-d'));
+    }
 );
 
 $routes->run();
