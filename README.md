@@ -4,7 +4,7 @@ A simple routing system built from scratch.
 
 ## About
 
-This is a custom routing solution created without relying on existing frameworks. Perfect for learning how routing works under the hood or for lightweight projects.
+This is a custom routing solution created without relying on existing frameworks. 
 
 ## Installation
 
