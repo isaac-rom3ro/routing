@@ -8,7 +8,6 @@ use Exception;
 
 // This class is responsible for any request action
 class Request {
-
     // Get the method used by the request, for example: GET, POST, PATCH, PUT, DELETE
     public static function getMethod(): string
     {
@@ -75,8 +74,10 @@ class Request {
     // Not finished
     private static function decodeQuery(string $query)
     {
-        return str_replace(['+', '%20'], ' ', 
-                    str_replace(['=', '&'], '|', $query)
-                );
+        return str_replace(
+            ['+', '%20'], ' ', str_replace( // Space Symbol
+                ['=', '%3D'], '|', str_replace( // Assign Symbol
+                    ['&', '%26'], '|', $query)) // Ampersand Symbol
+            );
     }
 }

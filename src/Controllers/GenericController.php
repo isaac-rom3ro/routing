@@ -18,7 +18,7 @@ class GenericController extends Controller {
 
     // Returns a message
     public function index() {
-        require_once __DIR__ . '/../../resources/views/welcome.php';
+        require_once $this->view('welcome.php');
     }
 
     public function storeUser(?array $request = null, Database $database)
@@ -32,4 +32,4 @@ class GenericController extends Controller {
 
         return $genericModel->insert($data["name"], $database->getConnection());
     }
-}
+} 

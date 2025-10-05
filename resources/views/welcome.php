@@ -77,7 +77,11 @@
       </a>
     </div>
   </div>
-  
+<!--   
+  <div>
+    <img style="mix-blend-mode: multiply;" src="https://svgcrown.com/file/hello-kitty/28.png" alt="">
+  </div> -->
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
