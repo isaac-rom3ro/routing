@@ -7,13 +7,13 @@ use App\DateTime\Obsid;
 
 $genericController = new GenericController();
 
-$routes->addNewRoute(
+$router->addNewRoute(
     endpoint: $genericController->getEndpoint(),
     method: GET,
     callback: fn() => $genericController->index()
 );
 
-$routes->addNewRoute(
+$router->addNewRoute(
     endpoint: '/date',
     method: GET,
     callback: function () {
@@ -21,4 +21,4 @@ $routes->addNewRoute(
     }
 );
 
-$routes->run();
+$router->run();

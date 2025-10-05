@@ -3,7 +3,7 @@
 // Some dependencies
 use Dotenv\Dotenv;
 use App\Connection\Database;
-use App\Web\Routes;
+use App\Web\Router;
 
 // Points to root directory of the project
 define('ROOT_PATH', realpath(__DIR__ . '/..'));
@@ -36,4 +36,4 @@ $database = new Database(
 );
 
 // Creates a route object
-$routes = new Routes();
+$router = new Router();

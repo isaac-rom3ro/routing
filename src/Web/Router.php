@@ -6,7 +6,7 @@ namespace App\Web;
 
 use Exception;
 
-class Routes
+class Router
 {
     // It will save all the routes added by the dev
     private array $routes = [];
