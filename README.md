@@ -12,6 +12,13 @@ This is a custom routing solution created without relying on existing frameworks
 git clone https://github.com/isaac-rom3ro/routing.git
 ```
 
+## Run the Project
+
+```bash
+cd https://github.com/isaac-rom3ro/routing.git
+php -S localhost:8000
+```
+
 ## Contributing
 
 Contributions, issues, and feature requests are welcome!
