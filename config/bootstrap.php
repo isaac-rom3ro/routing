@@ -15,10 +15,6 @@ define('PUT', 'PUT');
 define('PATCH', 'PATCH');
 define('DELETE', 'DELETE');
 
-// Set the timezone
-define('TIMEZONE', 'America/Sao_Paulo');
-date_default_timezone_set(TIMEZONE);
-
 // Autoloader
 require_once ROOT_PATH . '/vendor/autoload.php'; 
 
@@ -26,14 +22,21 @@ require_once ROOT_PATH . '/vendor/autoload.php';
 $dotEnv = Dotenv::createImmutable(ROOT_PATH, '.env');
 $dotEnv->safeLoad();
 
+// Set the timezone
+date_default_timezone_set($_ENV['TIMEZONE']);
+
 // Instatiating a new database object
-$database = new Database(
-    dbHOST: $_ENV['DB_HOST'],
-    dbNAME: $_ENV['DB_NAME'], 
-    dbCHARSET: $_ENV['DB_CHARSET'], 
-    dbUSERNAME: $_ENV['DB_USERNAME'], 
-    dbPASSWORD: $_ENV['DB_PASSWORD']
-);
+try {
+    $database = new Database(
+        dbHOST: $_ENV['DB_HOST'],
+        dbNAME: $_ENV['DB_NAME'], 
+        dbCHARSET: $_ENV['DB_CHARSET'], 
+        dbUSERNAME: $_ENV['DB_USERNAME'], 
+        dbPASSWORD: $_ENV['DB_PASSWORD']
+    );
+} catch(PDOException $e) {
+    die($e->getMessage());
+}
 
 // Creates a route object
 $router = new Router();

@@ -25,7 +25,7 @@ class Database {
 
             $this->isConnected = true;
         } catch (PDOException $e) {
-            return $e->getMessage();
+            throw new PDOException('An error has occurred while trying to establish connection with your Database, please debug to see further informations');
         }
     }
 
