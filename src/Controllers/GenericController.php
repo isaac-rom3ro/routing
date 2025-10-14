@@ -28,7 +28,7 @@ class GenericController extends Controller {
             $data = Request::input();
         }
 
-        $genericModel = new GenericModel(table: 'user');
+        $genericModel = new GenericModel(table: 'user', database: $database);
 
         return $genericModel->insert($data["name"], $database->getConnection());
     }

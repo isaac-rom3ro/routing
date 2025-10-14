@@ -16,14 +16,6 @@ $router->addNewRoute(
 );
 
 $router->addNewRoute(
-    endpoint: '/date',
-    method: GET,
-    callback: function () {
-        echo "Hello World";
-    }
-);
-
-$router->addNewRoute(
     endpoint: '/log',
     method: GET,
     callback: function () {
@@ -37,14 +29,6 @@ $router->addNewRoute(
     method: GET,
     callback: function () {
         Pancake::get('asd');
-    }
-);
-
-$router->addNewRoute(
-    endpoint: '/user',
-    method:GET,
-    callback: fn($parameters) => function ($parameters) {
-        
     }
 );
 
