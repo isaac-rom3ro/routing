@@ -26,9 +26,14 @@ $router->addNewRoute(
 
 $router->addNewRoute(
     endpoint:'/pancake',
-    method: GET,
+    method: POST,
     callback: function () {
-        Pancake::get('asd');
+        Pancake::post(
+            url: '',
+            contentType: ,
+            data: 
+
+        );
     }
 );
 

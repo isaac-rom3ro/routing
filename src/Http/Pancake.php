@@ -4,12 +4,9 @@ declare(strict_types = 1);
 
 namespace App\Http;
 
-use Exception;
-
 class Pancake {
     public static function get(
         string $url,
-        array $parameters = null
     )
     {
         $curl = curl_init();
@@ -33,4 +30,13 @@ class Pancake {
         echo $response;
         curl_close($curl);
     }   
+
+    public static function post 
+    (
+        string $url, 
+        string $contentType, 
+        array $data
+    ) {
+
+    }
 }   
