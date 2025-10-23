@@ -25,7 +25,7 @@ class Database {
 
             $this->isConnected = true;
         } catch (PDOException $e) {
-            throw new PDOException('An error has occurred while trying to establish connection with your Database, please debug to see further informations');
+            throw new PDOException('⚠️ Database connection failed. Please check your database credentials in the .env file. If this is your first setup, create a new empty database and update your .env accordingly. (No tables are required for this route.)');
         }
     }
 
